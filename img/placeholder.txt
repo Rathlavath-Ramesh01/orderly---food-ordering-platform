@@ -1,0 +1,31 @@
+For a complete website, you would need to add the following images to the 'img' directory:
+
+1. main-photo.jpg - A high-quality food image for the hero section background
+2. restaurant-1.jpg through restaurant-6.jpg - Images for restaurant cards:
+   - restaurant-1.jpg: Pizza Express
+   - restaurant-2.jpg: Burger Kingdom
+   - restaurant-3.jpg: Sushi Palace
+   - restaurant-4.jpg: Thai Delight
+   - restaurant-5.jpg: Spice Garden (Indian)
+   - restaurant-6.jpg: Dosa House (South Indian)
+3. dish-1.jpg through dish-8.jpg - Images for food dish cards:
+   - dish-1.jpg: Margherita Pizza
+   - dish-2.jpg: Chicken Burger
+   - dish-3.jpg: California Roll
+   - dish-4.jpg: Pad Thai
+   - dish-5.jpg: Butter Chicken
+   - dish-6.jpg: Paneer Tikka
+   - dish-7.jpg: Masala Dosa
+   - dish-8.jpg: Chicken Biryani
+4. app-mockup.png - A mockup of the mobile app
+
+Since this is a front-end only demo, you can use any food images you like, or replace these with actual images from your food delivery service.
+
+For the hero background image (main-photo.jpg), choose a high-resolution, wide landscape image of delicious food. This image will be the main visual for your site, so it should be visually appealing and relevant to food delivery.
+
+Common sources for placeholder images include:
+- Unsplash (https://unsplash.com/s/photos/food)
+- Pexels (https://www.pexels.com/search/food/)
+- Lorem Picsum (https://picsum.photos/)
+
+For a production website, you would want to optimize these images for web use to ensure fast loading times. 

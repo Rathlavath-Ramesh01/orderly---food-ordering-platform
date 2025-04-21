@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Orderly</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/restaurant_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 5%;
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mission-section {
+            background-color: #f8f9fa;
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .mission-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .mission-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .values {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: 300px;
+            text-align: center;
+        }
+        
+        .value-card i {
+            font-size: 2.5rem;
+            color: #ff4757;
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .value-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .team-section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .team-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .team-members {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-member {
+            flex: 1;
+            max-width: calc(33.33% - 20px);
+        }
+        
+        .team-member-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .team-member p.role {
+            font-size: 1.1rem;
+            color: #ff4757;
+            margin-bottom: 15px;
+        }
+        
+        .team-member p.bio {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-section h2, .mission-content h2, .team-section h2 {
+                font-size: 2rem;
+            }
+            
+            .team-member-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .team-members {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            
+            .team-member {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Orderly</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#how-it-works">How it works</a>
+                <a href="index.html#restaurants">Restaurants</a>
+                <a href="index.html#popular">Popular</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="login-btn">Login</a>
+                <a href="#" class="signup-btn">Sign Up</a>
+                <div class="cart">
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h1>About Orderly</h1>
+        <p>Connecting you with the best restaurants in your area for a seamless food delivery experience.</p>
+    </section>
+
+    <section class="about-section">
+        <h2>Our Story</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>How It All Started</h3>
+                <p>Orderly was founded in 2023 by three passionate computer science students who saw an opportunity to revolutionize the food delivery experience in their community. After experiencing inconsistent service quality from existing food delivery platforms, they decided to create a solution that prioritizes customer satisfaction, restaurant partnerships, and delivery efficiency.</p>
+                <p>What started as a college project quickly gained traction as local restaurants and customers embraced the platform's user-friendly interface and reliable service. Today, Orderly connects thousands of customers with their favorite local restaurants, delivering delicious meals right to their doorstep.</p>
+                <p>Our commitment to excellence, transparency, and community support has made us the preferred food delivery platform in the region.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-section">
+        <div class="mission-content">
+            <h2>Our Mission & Values</h2>
+            <p>At Orderly, our mission is to make food delivery simple, reliable, and enjoyable. We strive to connect people with great food from their favorite local restaurants, all while supporting the local culinary ecosystem.</p>
+            
+            <div class="values">
+                <div class="value-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Quality</h3>
+                    <p>We are committed to delivering quality food that meets our high standards. We partner only with restaurants that share our dedication to excellence.</p>
+                </div>
+                
+                <div class="value-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Efficiency</h3>
+                    <p>We value your time and strive to deliver your food promptly without compromising on quality or service.</p>
+                </div>
+                
+                <div class="value-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Community</h3>
+                    <p>We are dedicated to supporting local restaurants and building a stronger food community that benefits everyone involved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2>Meet the Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <div class="team-member-img">
+                    <img src="img\sasidhar.jpg" alt="Sai Sasidhar Paluri">
+                </div>
+                <h3>Sai Sasidhar Paluri</h3>
+                <p class="role">Co-Founder & CEO</p>
+                <p class="bio">Sai is a passionate software developer with expertise in full-stack development. His vision and leadership have been instrumental in shaping Orderly into what it is today. When he's not coding, Sai enjoys exploring new restaurants and culinary experiences.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-member-img">
+                    <img src="img\chanukya.jpg" alt="Chanukya Paruchuri">
+                </div>
+                <h3>Chanukya Paruchuri</h3>
+                <p class="role">Co-Founder & CTO</p>
+                <p class="bio">Chanukya oversees the technical architecture of Orderly. With a strong background in system design and algorithms, he ensures our platform remains robust, scalable, and secure. In his free time, Chanukya enjoys competitive programming and hiking.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="team-member-img">
+                    <img src="img\ramesh.jpg" alt="Rathlavath Ramesh">
+                </div>
+                <h3>Rathlavath Ramesh</h3>
+                <p class="role">Co-Founder & COO</p>
+                <p class="bio">Ramesh manages operations and partnerships at Orderly. His experience in business development and customer relations has helped Orderly establish strong relationships with restaurant partners. Ramesh loves trying out new recipes and is an amateur chef himself.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Orderly is your one-stop solution for food delivery. We connect you with the best restaurants in your area.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#restaurants">Restaurants</a></li>
+                    <li><a href="index.html#how-it-works">How it Works</a></li>
+                    <li><a href="index.html#popular">Popular Items</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: support@orderly.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Orderly. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

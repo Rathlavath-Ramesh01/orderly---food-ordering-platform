@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - Orderly</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .reviews-page {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .detailed-review {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .detailed-review:hover {
+            transform: translateY(-5px);
+        }
+        
+        .review-header {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .review-date {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .review-text {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .review-restaurant {
+            font-weight: 500;
+            color: #ff4757;
+            margin-top: 10px;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #ff4757;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 30px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background-color: #ff2e42;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Orderly</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#how-it-works">How it works</a>
+                <a href="index.html#restaurants">Restaurants</a>
+                <a href="index.html#popular">Popular</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="login-btn">Login</a>
+                <a href="#" class="signup-btn">Sign Up</a>
+                <div class="cart">
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="reviews-page">
+        <h1>Customer Reviews</h1>
+        <p>See what our customers are saying about our service and restaurants.</p>
+        
+        <div class="review-grid">
+            <div class="detailed-review">
+                <div class="review-header">
+                    <h3>Arjun Sharma</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="review-date">May 15, 2025</div>
+                <p class="review-text">"I've been using Orderly for the past 6 months and I'm extremely impressed with their service. The food always arrives hot and fresh, and the delivery people are very professional. The app is intuitive and easy to use, making the whole ordering process seamless. Highly recommend to anyone looking for reliable food delivery!"</p>
+                <p class="review-restaurant">Ordered from: Pizza Hut</p>
+            </div>
+            
+            <div class="detailed-review">
+                <div class="review-header">
+                    <h3>Isha Patel</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="review-date">April 28, 2025</div>
+                <p class="review-text">"Orderly has made my busy weekdays so much easier! The variety of restaurants available is impressive and I've discovered some amazing local places I wouldn't have found otherwise. The delivery is usually on time, and when there was a small delay once, customer service was quick to respond and very helpful. Great experience overall!"</p>
+                <p class="review-restaurant">Ordered from: Biryani by Kilo</p>
+            </div>
+            
+            <div class="detailed-review">
+                <div class="review-header">
+                    <h3>Rohan Kapoor</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="review-date">May 5, 2025</div>
+                <p class="review-text">"I'm very impressed with how user-friendly the Orderly app is. The interface is clean and navigating through different restaurant options is a breeze. I particularly appreciate the detailed menu descriptions and photos. The delivery has been consistently fast, often arriving before the estimated time. Their customer service is also top-notch - they resolved a minor issue with my order immediately."</p>
+                <p class="review-restaurant">Ordered from: Dosa Palace</p>
+            </div>
+            
+            <div class="detailed-review">
+                <div class="review-header">
+                    <h3>Ananya Desai</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+                <div class="review-date">April 19, 2025</div>
+                <p class="review-text">"Orderly has become my go-to food delivery app. Their customer service is exceptional - when I had an issue with a missing item in my order, they not only refunded the item but also gave me a discount on my next order. The food quality from their partner restaurants has been consistent, and I like how they follow up after delivery to ensure customer satisfaction."</p>
+                <p class="review-restaurant">Ordered from: Burger King</p>
+            </div>
+            
+            <div class="detailed-review">
+                <div class="review-header">
+                    <h3>Vikram Singh</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="review-date">May 12, 2025</div>
+                <p class="review-text">"I've tried several food delivery services, but Orderly stands out with their attention to detail. The tracking feature is accurate, letting me know exactly when my food will arrive. I also appreciate their eco-friendly packaging initiatives with partner restaurants. The loyalty program is a nice bonus too - I've earned several discounts through my regular orders."</p>
+                <p class="review-restaurant">Ordered from: 7 Biryanis</p>
+            </div>
+            
+            <div class="detailed-review">
+                <div class="review-header">
+                    <h3>Neha Gupta</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+                <div class="review-date">April 30, 2025</div>
+                <p class="review-text">"As someone with dietary restrictions, I really value how Orderly makes it easy to filter restaurants based on specific food preferences. The detailed menu information helps me make safe choices. Their delivery personnel are always courteous and professional. My only suggestion would be to expand their restaurant selection in my neighborhood, but overall I'm very satisfied with the service."</p>
+                <p class="review-restaurant">Ordered from: Udipi Hotel</p>
+            </div>
+            
+            <div class="detailed-review">
+                <div class="review-header">
+                    <h3>Aditya Mehta</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+                <div class="review-date">May 8, 2025</div>
+                <p class="review-text">"Orderly offers the best delivery time in my area. The estimated delivery times are accurate, and I like how they keep you updated through notifications. Their payment options are versatile, and the checkout process is smooth. The only reason for not giving 5 stars is that a few times, my order was slightly different from what I requested, but customer service was helpful in resolving these issues."</p>
+                <p class="review-restaurant">Ordered from: Savory Sanctuary</p>
+            </div>
+            
+            <div class="detailed-review">
+                <div class="review-header">
+                    <h3>Priya Sharma</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="review-date">May 3, 2025</div>
+                <p class="review-text">"I love the special offers and discounts that Orderly regularly provides. It makes ordering food more economical, especially for regular customers like me. Their app performance is stable and I've never experienced crashes or glitches during ordering. The food arrives well-packaged and at the right temperature. Definitely my preferred food delivery service!"</p>
+                <p class="review-restaurant">Ordered from: McDonalds</p>
+            </div>
+        </div>
+        
+        <a href="index.html" class="back-btn">Back to Home</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Orderly is your one-stop solution for food delivery. We connect you with the best restaurants in your area.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#restaurants">Restaurants</a></li>
+                    <li><a href="index.html#how-it-works">How it Works</a></li>
+                    <li><a href="index.html#popular">Popular Items</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: support@orderly.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Orderly. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

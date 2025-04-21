@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Orderly</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .cart-page {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .cart-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .cart-items-container {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .cart-summary-container {
+            flex: 1;
+            min-width: 250px;
+            align-self: flex-start;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 15px;
+            background-color: #fff;
+        }
+        
+        .cart-item-image {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-restaurant {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .cart-item-price {
+            color: #ff4757;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f2f6;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background-color: #dfe4ea;
+        }
+        
+        .remove-btn {
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .remove-btn:hover {
+            color: #ff4757;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .empty-cart i {
+            font-size: 60px;
+            color: #dfe4ea;
+            margin-bottom: 20px;
+        }
+        
+        .empty-cart h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .empty-cart p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+        
+        .browse-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #ff4757;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .browse-btn:hover {
+            background-color: #ff2e42;
+        }
+        
+        .cart-summary {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+        }
+        
+        .cart-summary h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .summary-row.total {
+            font-weight: 600;
+            font-size: 18px;
+            padding-top: 15px;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 500;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .checkout-btn:hover {
+            background-color: #ff2e42;
+        }
+        
+        .delivery-address {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-top: 20px;
+        }
+        
+        .delivery-address h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .address-form {
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .address-toggle {
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 14px;
+            user-select: none;
+        }
+        
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        .checkbox-container:hover input ~ .checkmark {
+            background-color: #f9f9f9;
+        }
+        
+        .checkbox-container input:checked ~ .checkmark {
+            background-color: #ff4757;
+            border-color: #ff4757;
+        }
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        .checkbox-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+        
+        .checkbox-container .checkmark:after {
+            left: 7px;
+            top: 3px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        @media (max-width: 768px) {
+            .cart-container {
+                flex-direction: column;
+            }
+            
+            .cart-summary-container {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Orderly</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#how-it-works">How it works</a>
+                <a href="index.html#restaurants">Restaurants</a>
+                <a href="index.html#popular">Popular</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="login-btn">Login</a>
+                <a href="#" class="signup-btn">Sign Up</a>
+                <div class="cart">
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">3</span>
+                </div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="cart-page">
+        <h1>Your Cart</h1>
+        <p>Review your items and checkout when ready.</p>
+        
+        <div class="cart-container">
+            <div class="cart-items-container">
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="img/biryani_01.jpg" alt="Chicken Biryani">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">Chicken Biryani</div>
+                        <div class="cart-item-restaurant">From: 7 Biryanis</div>
+                        <div class="cart-item-price">₹329</div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-control">
+                                <div class="quantity-btn minus">
+                                    <i class="fas fa-minus"></i>
+                                </div>
+                                <span>1</span>
+                                <div class="quantity-btn plus">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="remove-btn">
+                                <i class="fas fa-trash"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="img/pizza_01.jpg" alt="Margherita Pizza">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">Margherita Pizza</div>
+                        <div class="cart-item-restaurant">From: Pizza Hut</div>
+                        <div class="cart-item-price">₹249</div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-control">
+                                <div class="quantity-btn minus">
+                                    <i class="fas fa-minus"></i>
+                                </div>
+                                <span>1</span>
+                                <div class="quantity-btn plus">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="remove-btn">
+                                <i class="fas fa-trash"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="img/dessert_01.png" alt="Gulab Jamun">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">Gulab Jamun</div>
+                        <div class="cart-item-restaurant">From: Hotel Grand</div>
+                        <div class="cart-item-price">₹149</div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-control">
+                                <div class="quantity-btn minus">
+                                    <i class="fas fa-minus"></i>
+                                </div>
+                                <span>2</span>
+                                <div class="quantity-btn plus">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="remove-btn">
+                                <i class="fas fa-trash"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Empty cart state (hidden by default) -->
+                <div class="empty-cart" style="display: none;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Your cart is empty</h3>
+                    <p>Looks like you haven't added any items to your cart yet.</p>
+                    <a href="index.html#popular" class="browse-btn">Browse Items</a>
+                </div>
+            </div>
+            
+            <div class="cart-summary-container">
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>₹0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee</span>
+                        <span>₹49.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax</span>
+                        <span>₹0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span>₹0.00</span>
+                    </div>
+                    <button class="checkout-btn">Proceed to Checkout</button>
+                </div>
+                
+                <div class="delivery-address">
+                    <h3>Delivery Address</h3>
+                    <div class="address-toggle">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="useNewAddress">
+                            <span class="checkmark"></span>
+                            Use a different address
+                        </label>
+                    </div>
+                    <div id="savedAddressContainer">
+                        <p>Your saved address will be used for delivery.</p>
+                        <div class="saved-address-details" style="font-weight: 500; margin-top: 10px;">
+                            123 Main Street, Apartment 4B<br>
+                            Mumbai, Maharashtra 400001
+                        </div>
+                    </div>
+                    <div id="newAddressForm" class="address-form" style="display: none;">
+                        <div class="form-group">
+                            <label for="deliveryStreet">Street Address</label>
+                            <input type="text" id="deliveryStreet" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryCity">City</label>
+                            <input type="text" id="deliveryCity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryState">State</label>
+                            <input type="text" id="deliveryState" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryZip">Pin Code</label>
+                            <input type="text" id="deliveryZip" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="deliveryInstructions">Delivery Instructions (Optional)</label>
+                        <textarea id="deliveryInstructions" placeholder="Any special instructions for delivery"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Orderly is your one-stop solution for food delivery. We connect you with the best restaurants in your area.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#restaurants">Restaurants</a></li>
+                    <li><a href="index.html#how-it-works">How it Works</a></li>
+                    <li><a href="index.html#popular">Popular Items</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: support@orderly.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Orderly. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle address form display
+        document.getElementById('useNewAddress').addEventListener('change', function() {
+            const savedAddress = document.getElementById('savedAddressContainer');
+            const newAddress = document.getElementById('newAddressForm');
+            
+            if (this.checked) {
+                savedAddress.style.display = 'none';
+                newAddress.style.display = 'block';
+            } else {
+                savedAddress.style.display = 'block';
+                newAddress.style.display = 'none';
+            }
+        });
+        
+        // Load cart items from localStorage
+        function loadCartItems() {
+            const cartItemsContainer = document.querySelector('.cart-items-container');
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            
+            // Clear existing hard-coded cart items
+            cartItemsContainer.innerHTML = '';
+            
+            if (cartItems.length === 0) {
+                // Show empty cart state
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Looks like you haven't added any items to your cart yet.</p>
+                        <a href="index.html#popular" class="browse-btn">Browse Items</a>
+                    </div>
+                `;
+                document.querySelector('.cart-summary-container').style.display = 'none';
+                return;
+            }
+            
+            console.log('Cart items from localStorage:', cartItems);
+            let anyValidItems = false;
+            
+            // Add items from localStorage
+            cartItems.forEach((item, index) => {
+                // Ensure price is a valid number
+                const price = parseFloat(item.price);
+                if (isNaN(price)) {
+                    console.error("Invalid price for item:", item);
+                    return; // Skip this item
+                }
+                
+                anyValidItems = true;
+                const cartItemHtml = `
+                    <div class="cart-item" data-index="${index}" data-price="${price}">
+                        <div class="cart-item-image">
+                            <img src="${item.img}" alt="${item.name}">
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-restaurant">From: ${item.restaurant || 'Restaurant'}</div>
+                            <div class="cart-item-price">₹${price.toFixed(2)}</div>
+                            <div class="cart-item-actions">
+                                <div class="quantity-control">
+                                    <div class="quantity-btn minus">
+                                        <i class="fas fa-minus"></i>
+                                    </div>
+                                    <span>${item.quantity || 1}</span>
+                                    <div class="quantity-btn plus">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                                <div class="remove-btn">
+                                    <i class="fas fa-trash"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.innerHTML += cartItemHtml;
+            });
+            
+            // Show cart summary only if we have valid items
+            if (anyValidItems) {
+                document.querySelector('.cart-summary-container').style.display = 'block';
+                
+                // Add event listeners to new buttons
+                setupQuantityButtons();
+                
+                // Update totals
+                updateTotals();
+            } else {
+                // If no valid items were found, show empty cart state
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Looks like you haven't added any items to your cart yet.</p>
+                        <a href="index.html#popular" class="browse-btn">Browse Items</a>
+                    </div>
+                `;
+                document.querySelector('.cart-summary-container').style.display = 'none';
+            }
+        }
+        
+        // Set up quantity control buttons
+        function setupQuantityButtons() {
+        const minusBtns = document.querySelectorAll('.quantity-btn.minus');
+        const plusBtns = document.querySelectorAll('.quantity-btn.plus');
+        const removeBtns = document.querySelectorAll('.remove-btn');
+        
+        minusBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const quantitySpan = this.nextElementSibling;
+                let quantity = parseInt(quantitySpan.textContent);
+                if (quantity > 1) {
+                    quantitySpan.textContent = quantity - 1;
+                        
+                        // Update localStorage
+                        const cartItem = this.closest('.cart-item');
+                        const index = cartItem.dataset.index;
+                        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                        
+                        if (cartItems[index]) {
+                            cartItems[index].quantity = quantity - 1;
+                            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                        }
+                        
+                    updateTotals();
+                }
+            });
+        });
+        
+        plusBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const quantitySpan = this.previousElementSibling;
+                let quantity = parseInt(quantitySpan.textContent);
+                quantitySpan.textContent = quantity + 1;
+                    
+                    // Update localStorage
+                    const cartItem = this.closest('.cart-item');
+                    const index = cartItem.dataset.index;
+                    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                    
+                    if (cartItems[index]) {
+                        cartItems[index].quantity = quantity + 1;
+                        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    }
+                    
+                updateTotals();
+            });
+        });
+        
+        removeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const cartItem = this.closest('.cart-item');
+                    const index = cartItem.dataset.index;
+                    
+                    // Remove from localStorage
+                    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                    if (cartItems[index]) {
+                        cartItems.splice(index, 1);
+                        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    }
+                    
+                    // Remove from DOM
+                cartItem.remove();
+                    
+                    // Check if cart is empty
+                checkEmptyCart();
+                    
+                    // Update cart count in header
+                    document.querySelector('.cart-count').textContent = cartItems.length;
+                    
+                    // Update totals
+                updateTotals();
+            });
+        });
+        }
+        
+        function checkEmptyCart() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            const cartItemsContainer = document.querySelector('.cart-items-container');
+            const cartSummary = document.querySelector('.cart-summary-container');
+            
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Looks like you haven't added any items to your cart yet.</p>
+                        <a href="index.html#popular" class="browse-btn">Browse Items</a>
+                    </div>
+                `;
+                cartSummary.style.display = 'none';
+            }
+        }
+        
+        function updateTotals() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            let subtotal = 0;
+            
+            cartItems.forEach(item => {
+                const price = parseFloat(item.dataset.price);
+                if (isNaN(price)) {
+                    console.error("Invalid price in cart item:", item);
+                    return; // Skip this item in calculation
+                }
+                
+                const quantity = parseInt(item.querySelector('.quantity-control span').textContent);
+                if (isNaN(quantity)) {
+                    console.error("Invalid quantity in cart item:", item);
+                    return; // Skip this item in calculation
+                }
+                
+                const itemTotal = price * quantity;
+                subtotal += itemTotal;
+                
+                // Update the individual item price display to show total for quantity
+                if (quantity > 1) {
+                    const priceDisplay = item.querySelector('.cart-item-price');
+                    if (priceDisplay) {
+                        priceDisplay.innerHTML = `₹${price.toFixed(2)} <span style="font-size: 0.85em; color: #666;">× ${quantity} = ₹${itemTotal.toFixed(2)}</span>`;
+                    }
+                }
+            });
+            
+            // Calculate other fees
+            const deliveryFee = 49; // ₹49 delivery fee
+            const taxRate = 0.05; // 5% tax
+            const tax = subtotal * taxRate;
+            const total = subtotal + deliveryFee + tax;
+            
+            // Update the summary display - make sure we have the right selectors
+            const subtotalElement = document.querySelector('.cart-summary .summary-row:nth-child(1) span:nth-child(2)');
+            const deliveryFeeElement = document.querySelector('.cart-summary .summary-row:nth-child(2) span:nth-child(2)');
+            const taxElement = document.querySelector('.cart-summary .summary-row:nth-child(3) span:nth-child(2)');
+            const totalElement = document.querySelector('.cart-summary .summary-row.total span:nth-child(2)');
+            
+            if (subtotalElement) subtotalElement.textContent = `₹${subtotal.toFixed(2)}`;
+            if (deliveryFeeElement) deliveryFeeElement.textContent = `₹${deliveryFee.toFixed(2)}`;
+            if (taxElement) taxElement.textContent = `₹${tax.toFixed(2)}`;
+            if (totalElement) totalElement.textContent = `₹${total.toFixed(2)}`;
+            
+            // Log the calculation for debugging
+            console.log(`Cart Summary - Subtotal: ₹${subtotal.toFixed(2)}, Delivery: ₹${deliveryFee.toFixed(2)}, Tax: ₹${tax.toFixed(2)}, Total: ₹${total.toFixed(2)}`);
+        }
+        
+        // Checkout button
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            // Create popup overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'checkout-overlay';
+            
+            const popup = document.createElement('div');
+            popup.className = 'checkout-popup';
+            
+            // Create popup content
+            popup.innerHTML = `
+                <div class="popup-header">
+                    <h3>Order Confirmed!</h3>
+                    <span class="close-popup">&times;</span>
+                </div>
+                <div class="popup-content">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <p>Thank you for your order! Your food will be on its way soon.</p>
+                    <p class="delivery-estimate">Estimated delivery time: 30-45 minutes</p>
+                    <button class="continue-btn">Continue Shopping</button>
+                </div>
+            `;
+            
+            // Add popup to overlay
+            overlay.appendChild(popup);
+            
+            // Add styles for the popup
+            const style = document.createElement('style');
+            style.textContent = `
+                .checkout-overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 1000;
+                }
+                
+                .checkout-popup {
+                    background-color: white;
+                    border-radius: 10px;
+                    width: 90%;
+                    max-width: 500px;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                    animation: popIn 0.3s ease-out forwards;
+                }
+                
+                @keyframes popIn {
+                    from { transform: scale(0.8); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+                
+                .popup-header {
+                    padding: 15px 20px;
+                    border-bottom: 1px solid #eee;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                
+                .popup-header h3 {
+                    margin: 0;
+                    color: #333;
+                }
+                
+                .close-popup {
+                    cursor: pointer;
+                    font-size: 24px;
+                    color: #999;
+                }
+                
+                .popup-content {
+                    padding: 30px 20px;
+                    text-align: center;
+                }
+                
+                .success-icon {
+                    font-size: 60px;
+                    color: #2ed573;
+                    margin-bottom: 20px;
+                }
+                
+                .delivery-estimate {
+                    margin: 20px 0;
+                    color: #666;
+                }
+                
+                .continue-btn {
+                    padding: 12px 25px;
+                    background-color: #ff4757;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: background 0.3s ease;
+                }
+                
+                .continue-btn:hover {
+                    background-color: #ff2e42;
+                }
+            `;
+            
+            document.head.appendChild(style);
+            document.body.appendChild(overlay);
+            
+            // Clear cart
+            localStorage.removeItem('cartItems');
+            document.querySelector('.cart-count').textContent = '0';
+            
+            // Close popup and reload page
+            const closeBtn = popup.querySelector('.close-popup');
+            const continueBtn = popup.querySelector('.continue-btn');
+            
+            closeBtn.addEventListener('click', function() {
+                overlay.remove();
+                window.location.reload();
+            });
+            
+            continueBtn.addEventListener('click', function() {
+                overlay.remove();
+                window.location.href = 'index.html';
+            });
+        });
+        
+        // Initialize cart on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, initializing cart...');
+            
+            // Remove any hardcoded items from the cart
+            const cartItemsContainer = document.querySelector('.cart-items-container');
+            cartItemsContainer.innerHTML = '';
+            
+            // Update cart count from localStorage
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            console.log('Cart items from localStorage on page load:', cartItems);
+            
+            document.querySelector('.cart-count').textContent = cartItems.length;
+            
+            // Load cart items
+            loadCartItems();
+            
+            // Make sure totals are explicitly calculated again
+            setTimeout(() => {
+                // This ensures the DOM has been fully updated before we calculate totals
+                updateTotals();
+                console.log('Totals updated after slight delay');
+            }, 100);
+        });
+
+        // Debug helper - add to window for console access
+        window.debugCart = function() {
+            console.log('Debug cart contents:');
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            console.log('Items in localStorage:', cartItems);
+            
+            const domItems = document.querySelectorAll('.cart-item');
+            console.log('Items in DOM:', domItems.length);
+            domItems.forEach((item, i) => {
+                const price = item.dataset.price;
+                const quantity = item.querySelector('.quantity-control span').textContent;
+                console.log(`Item ${i}: price=${price}, quantity=${quantity}, total=${price * quantity}`);
+            });
+            
+            // Force recalculation
+            updateTotals();
+        };
+    </script>
+</body>
+</html> 

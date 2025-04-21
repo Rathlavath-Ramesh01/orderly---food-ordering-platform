@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orderly - Food Delivery</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Orderly</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="#restaurants">Restaurants</a>
+                <a href="#popular">Popular</a>
+                <a href="aboutus.html">About Us</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="login-btn">Login</a>
+                <a href="#" class="signup-btn">Sign Up</a>
+                <div class="cart">
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" data-bg-image="main photo.jpg">
+        <div class="hero-content">
+            <h1>Food delivery made simple</h1>
+            <p>Order from your favorite local restaurants with free delivery on your first order.</p>
+            <div class="search-container">
+                <input type="text" placeholder="Enter your address">
+                <button>Find Food</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <h2>How it works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Set delivery location</h3>
+                <p>Enter your address to see restaurants that deliver to you</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Choose a restaurant</h3>
+                <p>Browse menus and reviews to find your perfect meal</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h3>Pay online or on delivery</h3>
+                <p>Easy payment options for seamless ordering</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">
+                    <i class="fas fa-biking"></i>
+                </div>
+                <h3>Enjoy your food</h3>
+                <p>Food is prepared and delivered to your door</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="restaurants" class="categories">
+        <h2>Browse by category</h2>
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="all">All</button>
+            <button class="category-tab" data-category="pizza">Pizza</button>
+            <button class="category-tab" data-category="burger">Burgers</button>
+            <button class="category-tab" data-category="Tiffins">Tiffins</button>
+            <button class="category-tab" data-category="biryani">Biryani</button>
+            <button class="category-tab" data-category="dessert">Desserts</button>
+        </div>
+        
+        <div class="restaurants">
+            <div class="restaurant" data-category="pizza" data-restaurant-id="pizza-hut-1">
+                <a href="restaurant.html?id=pizza-hut-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/pizza_02.jpg" alt="Pizza Place">
+                    <span class="time">25-35 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Pizza Hut</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.8 (200+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>Pizza</span>
+                        <span>Italian</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                        <span><i class="fas fa-tag"></i> 20% OFF</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="pizza" data-restaurant-id="dominos-1">
+                <a href="restaurant.html?id=dominos-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/pizza_03.jpg" alt="Pizza Place">
+                    <span class="time">25-35 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Dominos</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.5 (350+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>Pizza</span>
+                        <span>American</span>
+                        <span>Indian</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                        <span><i class="fas fa-tag"></i> 20% OFF</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="pizza" data-restaurant-id="pizza-express-1">
+                <a href="restaurant.html?id=pizza-express-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/pizza_01.jpg" alt="Pizza Place">
+                    <span class="time">25-35 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Pizza Express</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.1 (100+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>Pizza</span>
+                        <span>Indian</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                        <span><i class="fas fa-tag"></i> 20% OFF</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+            
+            <div class="restaurant" data-category="burger">
+                <a href="restaurant.html?id=burger-king-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/burger_01.jpg" alt="Burger Place">
+                    <span class="time">15-25 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Burger King</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.6 (150+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>Burgers</span>
+                        <span>Indian</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="burger">
+                <a href="restaurant.html?id=mcdonalds-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/burger_02.jpg" alt="BurgerPLace">
+                    <span class="time">15-25 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>McDonalds</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.6 (150+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>Burgers</span>
+                        <span>European</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="burger">
+                <a href="restaurant.html?id=burger-joint-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/burger_03.jpg" alt="Burger Joint">
+                    <span class="time">15-25 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Burger Joint</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.6 (150+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>Burgers</span>
+                        <span>American</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="Tiffins">
+                <a href="restaurant.html?id=udipi-hotel-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/tiffin_01.jpg" alt="Tiffin place">
+                    <span class="time">20-30 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Udipi Hotel</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.3 (790+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>South Indian</span>
+                        <span>Vegetarian</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> ₹49 delivery</span>
+                        <span><i class="fas fa-tag"></i> 15% OFF</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="Tiffins">
+                <a href="restaurant.html?id=dosa-palace-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/tiffin_02.jpg" alt="Dosa place">
+                    <span class="time">20-30 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Dosa Palace</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>3.7 (140+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>North Indian</span>
+                        <span>Vegetarian</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> ₹49 delivery</span>
+                        <span><i class="fas fa-tag"></i> 15% OFF</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+            
+            <div class="restaurant" data-category="Tiffins">
+                <a href="restaurant.html?id=hotel-alpha-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/tiffin_03.jpg" alt="Dhaba">
+                    <span class="time">20-30 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Hotel Alpha</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.9 (320+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>South Indian</span>
+                        <span>North Indian</span>
+                        <span>Vegetarian</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> ₹49 delivery</span>
+                        <span><i class="fas fa-tag"></i> 15% OFF</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="biryani">
+                <a href="restaurant.html?id=7-biryanis-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/biryani_01.jpg" alt="biryani place">
+                    <span class="time">25-40 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>7 Biryanis</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.7 (180+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>Vegetarian</span>
+                        <span>Non-veg</span>
+                        <span>North Indian</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="biryani">
+                <a href="restaurant.html?id=biryani-by-kilo-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/biryani_02.jpg" alt="biryani joint">
+                    <span class="time">25-40 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Biryani by Kilo</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>3.7 (1000+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>South Indian</span>
+                        <span>Asian</span>
+                        <span>Non-veg</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="biryani">
+                <a href="restaurant.html?id=biryani-house-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/biryani_03.jpg" alt="biryani place">
+                    <span class="time">25-40 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Biryani House</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.6 (100+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>North Indian</span>
+                        <span>Vegetarian</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="biryani">
+                <a href="restaurant.html?id=barbeque-nation-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/biryani_04.jpg" alt="restaurant">
+                    <span class="time">25-40 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Barbeque Nation</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>3.9 (870+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>Non-veg</span>
+                        <span>Veg</span>
+                        <span>Indian</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+            
+            <div class="restaurant" data-category="dessert">
+                <a href="restaurant.html?id=hotel-grand-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/dessert_03.png" alt="Food place">
+                    <span class="time">20-35 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Hotel Grand</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.8 (250+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>Sweets</span>
+                        <span>Ice-creams</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                        <span><i class="fas fa-tag"></i> 10% OFF</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="dessert">
+                <a href="restaurant.html?id=appetite-alley-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/dessert_01.png" alt="Dessert place">
+                    <span class="time">20-35 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Appetite Alley</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.8 (250+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>Indian</span>
+                        <span>Sweets</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i>Free delivery</span>
+                        <span><i class="fas fa-tag"></i> 10% OFF</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="restaurant" data-category="dessert">
+                <a href="restaurant.html?id=savory-sanctuary-1" style="text-decoration: none; color: inherit;">
+                <div class="restaurant-img">
+                    <img src="img/dessert_02.png" alt="Sweets">
+                    <span class="time">20-35 min</span>
+                </div>
+                <div class="restaurant-info">
+                    <h3>Savory Sanctuary</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.8 (250+)</span>
+                    </div>
+                    <div class="tags">
+                        <span>American</span>
+                        <span>Ice-creams</span>
+                    </div>
+                    <div class="delivery-info">
+                        <span><i class="fas fa-bicycle"></i> Free delivery</span>
+                        <span><i class="fas fa-tag"></i> 10% OFF</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+        
+        <div class="view-more">
+            <button>View more restaurants</button>
+        </div>
+    </section>
+
+    <section id="popular" class="popular-items">
+        <h2>Popular Items</h2>
+        <div class="popular-grid">
+            <div class="popular-item" data-restaurant-id="pizza-restaurant-1" data-item-id="pizza-1">
+                <img src="img/pizza_01.jpg" alt="Margherita Pizza">
+                <div class="item-info">
+                    <h3>Margherita Pizza</h3>
+                    <p>Classic tomato sauce with mozzarella</p>
+                    <div class="price">₹249</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="popular-item" data-restaurant-id="burger-restaurant-1" data-item-id="burger-1">
+                <img src="img/burger_01.jpg" alt="Classic Burger">
+                <div class="item-info">
+                    <h3>Classic Burger</h3>
+                    <p>Beef patty with fresh vegetables</p>
+                    <div class="price">₹199</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="popular-item" data-restaurant-id="tiffin-restaurant-1" data-item-id="thali-1">
+                <img src="img/tiffin_01.jpg" alt="South Indian Thali">
+                <div class="item-info">
+                    <h3>South Indian Thali</h3>
+                    <p>Complete meal with variety of dishes</p>
+                    <div class="price">₹299</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="popular-item" data-restaurant-id="biryani-restaurant-1" data-item-id="biryani-1">
+                <img src="img/biryani_01.jpg" alt="Chicken Biryani">
+                <div class="item-info">
+                    <h3>Chicken Biryani</h3>
+                    <p>Aromatic basmati rice with tender chicken</p>
+                    <div class="price">₹329</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="popular-item" data-restaurant-id="dessert-restaurant-1" data-item-id="gulab-jamun-1">
+                <img src="img/dessert_01.png" alt="Gulab Jamun">
+                <div class="item-info">
+                    <h3>Gulab Jamun</h3>
+                    <p>Sweet dumplings soaked in sugar syrup</p>
+                    <div class="price">₹149</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="popular-item" data-restaurant-id="tiffin-restaurant-2" data-item-id="masala-dosa-1">
+                <img src="img/tiffin_02.jpg" alt="Masala Dosa">
+                <div class="item-info">
+                    <h3>Masala Dosa</h3>
+                    <p>Crispy crepe filled with spiced potatoes</p>
+                    <div class="price">₹179</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="popular-item" data-restaurant-id="biryani-restaurant-2" data-item-id="paneer-tikka-1">
+                <img src="img/paneer.jpg" alt="Paneer Tikka">
+                <div class="item-info">
+                    <h3>Paneer Tikka</h3>
+                    <p>Grilled cottage cheese with spices</p>
+                    <div class="price">₹279</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="popular-item" data-restaurant-id="burger-restaurant-2" data-item-id="veg-burger-1">
+                <img src="img/burger-1.jpg" alt="Veg Burger">
+                <div class="item-info">
+                    <h3>Veg Supreme Burger</h3>
+                    <p>Veggie patty with fresh toppings</p>
+                    <div class="price">₹169</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="popular-item" data-restaurant-id="dessert-restaurant-2" data-item-id="ice-cream-1">
+                <img src="img/Ice-Cream1.jpg" alt="Ice Cream">
+                <div class="item-info">
+                    <h3>Butterscotch Ice Cream</h3>
+                    <p>Creamy ice cream with butterscotch chunks</p>
+                    <div class="price">₹129</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2>What Our Customers Say</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-info">
+                    <h4>Arjun Sharma</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p>"Amazing food delivery service! The food was hot and fresh when it arrived."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-info">
+                    <h4>Isha Patel</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <p>"Great variety of restaurants and quick delivery. Will definitely order again!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-info">
+                    <h4>Rohan Kapoor</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p>"The app is super easy to use and the delivery was much faster than expected. Love the service!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-info">
+                    <h4>Ananya Desai</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+                <p>"Always fresh food and responsive customer service. They quickly resolved an issue with my order."</p>
+            </div>
+        </div>
+        <div class="view-more">
+            <a href="reviews.html" class="btn-primary review-link">See More Reviews</a>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <p class="form-footer">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">Sign Up</button>
+                <p class="form-footer">Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Cart</h2>
+            <div class="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="delivery-address">
+                <h3>Delivery Address</h3>
+                <div class="address-toggle">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="useNewAddress">
+                        <span class="checkmark"></span>
+                        Use a different address
+                    </label>
+                </div>
+                <div id="savedAddressContainer" class="saved-address">
+                    <p>Your saved address will be used for delivery.</p>
+                    <div class="saved-address-details"></div>
+                </div>
+                <div id="newAddressForm" class="new-address-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="deliveryStreet">Street Address</label>
+                        <input type="text" id="deliveryStreet" required>
+                    </div>
+                    <div class="address-inline">
+                        <div class="form-group">
+                            <label for="deliveryCity">City</label>
+                            <input type="text" id="deliveryCity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryState">State</label>
+                            <input type="text" id="deliveryState" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="deliveryZip">Zip Code</label>
+                        <input type="text" id="deliveryZip" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryInstructions">Delivery Instructions (Optional)</label>
+                    <textarea id="deliveryInstructions" placeholder="Any special instructions for delivery"></textarea>
+                </div>
+            </div>
+            <div class="cart-summary">
+                <div class="subtotal">
+                    <span>Subtotal:</span>
+                    <span>₹0.00</span>
+                </div>
+                <div class="delivery-fee">
+                    <span>Delivery Fee:</span>
+                    <span>₹49</span>
+                </div>
+                <div class="total">
+                    <span>Total:</span>
+                    <span>₹0.00</span>
+                </div>
+                <button class="btn-primary checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Orderly is your one-stop solution for food delivery. We connect you with the best restaurants in your area.</p>
+                <a href="aboutus.html" class="about-us-link">Learn more about us</a>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#restaurants">Restaurants</a></li>
+                    <li><a href="#how-it-works">How it Works</a></li>
+                    <li><a href="#popular">Popular Items</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: support@orderly.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Orderly. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
